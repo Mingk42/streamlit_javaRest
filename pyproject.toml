@@ -1,0 +1,17 @@
+[project]
+name = "streamlit_javaRest"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Mingk42", email = "xoals123456t@gmail.com"},
+]
+dependencies = [
+    "streamlit>=1.39.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
