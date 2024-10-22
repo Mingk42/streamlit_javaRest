@@ -25,6 +25,8 @@ edited_df = st.data_editor(
     }
 )
 
+
+left, middle, right = st.columns(3)
 ############# Create ###################################
 @st.dialog("New Person")
 def add():
@@ -43,7 +45,7 @@ def add():
             st.warn("오류가 있습니다", resp.text)
 
 
-if st.button("add Person"):
+if left.button("add Person"):
     add()
 ############# Create End ###############################
 
@@ -77,7 +79,7 @@ if edited_df is not None and not edited_df.equals(st.session_state["df_value"]):
 ############# Update End ###############################
 
 
-if st.button("Delete"):
+if right.button("Delete"):
     for i in range(len(edited_df["etc"])):
         if edited_df["etc"].iloc[i]:
             reqs.delete(edited_df.iloc[i]["href"])
