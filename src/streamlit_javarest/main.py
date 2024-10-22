@@ -7,14 +7,14 @@ st.title("People")
 
 resp = reqs.get("http://localhost:8080/people?size=1000").json()
 
-print(resp)
-
 df = pd.DataFrame(resp["_embedded"]["people"])
-df["href"] = df["_links"].apply(lambda x:x["person"]["href"])
+
+if len(df)>=1:          # empty df에서 오류 발생함.
+    df["href"] = df["_links"].apply(lambda x:x["person"]["href"])
 
 
-df = df[["firstName", "lastName", "href"]]
-df["etc"]=[False]*len(df)
+    df = df[["firstName", "lastName", "href"]]
+    df["etc"]=[False]*len(df)
 
 
 edited_df = st.data_editor(
